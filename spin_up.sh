@@ -1,9 +1,12 @@
 #!/bin/bash
 # Usage: deploy.sh [host]
 
-host="${1:-root@198.199.65.56}"
+if [[ "$#" != 1 ]]; then
+  echo "Usage: <user>@<host>"
+  exit 1
+fi
 
-tar cj . | ssh -o 'StrictHostKeyChecking no' "$host" '
+tar cj . | ssh -o 'StrictHostKeyChecking no' "$1" '
 rm -rf ~/chef &&
 mkdir ~/chef &&
 cd ~/chef &&
