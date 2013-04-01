@@ -8,6 +8,5 @@ rm -rf ~/chef &&
 mkdir ~/chef &&
 cd ~/chef &&
 tar xj &&
-bash chefify.sh &&
-bash dockerize.sh'
+bash chefify.sh'
 
